@@ -1,7 +1,10 @@
-.delete{
+.delete, .edit{
     user-select: none;
     cursor: pointer;
 }
 .delete:hover{
-    color: rgb(68, 68, 68);
+    color: rgb(156, 33, 33);
+}
+.edit:hover{
+    color: rgb(33, 86, 156);
 }

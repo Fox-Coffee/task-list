@@ -29,10 +29,20 @@ function App() {
       taskInputRef.current.value = "";
     }
   };
-  const deleteTask = (index) => {
+  const editTask = (index) => {
     const updatedTasks = [...tasks];
-    updatedTasks.splice(index, 1);
-    setTasks(updatedTasks);
+    const newTask = prompt("What should the task be renamed to?", updatedTasks[index]);
+    if(newTask != null && newTask != ""){
+      updatedTasks[index] = newTask;
+      setTasks(updatedTasks);
+    }
+  };
+  const deleteTask = (index) => {
+    if(window.confirm("Are you sure?")){
+      const updatedTasks = [...tasks];
+      updatedTasks.splice(index, 1);
+      setTasks(updatedTasks);
+    }
   };
 
   return (
@@ -43,7 +53,7 @@ function App() {
       ) : (
         <ul>
           {tasks.map((task, index) => (
-            <li key={index}>{task}<span className="delete" onClick={() => deleteTask(index)}>Delete</span></li>
+            <li key={index}>{task}<span className="delete" onClick={() => deleteTask(index)}>Delete</span>     <span className="edit" onClick={() => editTask(index)}>Edit</span></li>
           ))}
         </ul>
       )}
