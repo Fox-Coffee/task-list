@@ -32,7 +32,7 @@ function App() {
   const editTask = (index) => {
     const updatedTasks = [...tasks];
     const newTask = prompt("What should the task be renamed to?", updatedTasks[index]);
-    if(newTask != null && newTask != ""){
+    if(newTask !== null && newTask != ""){
       updatedTasks[index] = newTask;
       setTasks(updatedTasks);
     }

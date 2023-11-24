@@ -1,10 +1,14 @@
+body{
+    background-color: rgb(37, 42, 44);
+    color: rgb(255, 241, 216);
+}
 .delete, .edit{
     user-select: none;
     cursor: pointer;
 }
 .delete:hover{
-    color: rgb(156, 33, 33);
+    color: rgb(219, 19, 19);
 }
 .edit:hover{
-    color: rgb(33, 86, 156);
+    color: rgb(33, 121, 156);
 }
