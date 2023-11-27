@@ -1,15 +1,19 @@
 body{
     background-color: rgb(37, 42, 44);
     color: rgb(255, 241, 216);
+    font-family: Arial, Helvetica, sans-serif;
 }
-.delete, .edit, .showMore{
+.delete, .edit, .show{
     user-select: none;
     cursor: pointer;
     margin: 0 12px;
 }
+h3{
+    display: inline;
+}
 .delete:hover{
     color: rgb(219, 19, 19);
 }
-.edit:hover, .showMore:hover{
+.edit:hover, .show:hover{
     color: rgb(33, 121, 156);
 }
