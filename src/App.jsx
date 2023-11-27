@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ListElement } from "./components/ListElement";
 import './App.css'
 
 const useLocalStorage = (key, initialValue) => {
@@ -29,21 +30,6 @@ function App() {
       taskInputRef.current.value = "";
     }
   };
-  const editTask = (index) => {
-    const updatedTasks = [...tasks];
-    const newTask = prompt("What should the task be renamed to?", updatedTasks[index]);
-    if(newTask !== null && newTask != ""){
-      updatedTasks[index] = newTask;
-      setTasks(updatedTasks);
-    }
-  };
-  const deleteTask = (index) => {
-    if(window.confirm("Are you sure?")){
-      const updatedTasks = [...tasks];
-      updatedTasks.splice(index, 1);
-      setTasks(updatedTasks);
-    }
-  };
 
   return (
     <div className="App">
@@ -53,7 +39,7 @@ function App() {
       ) : (
         <ul>
           {tasks.map((task, index) => (
-            <li key={index}>{task}<span className="delete" onClick={() => deleteTask(index)}>Delete</span>     <span className="edit" onClick={() => editTask(index)}>Edit</span></li>
+            <ListElement index={index} task={task} update={setTasks} tasks={tasks}/>
           ))}
         </ul>
       )}
@@ -65,5 +51,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

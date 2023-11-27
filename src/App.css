@@ -2,13 +2,14 @@ body{
     background-color: rgb(37, 42, 44);
     color: rgb(255, 241, 216);
 }
-.delete, .edit{
+.delete, .edit, .showMore{
     user-select: none;
     cursor: pointer;
+    margin: 0 12px;
 }
 .delete:hover{
     color: rgb(219, 19, 19);
 }
-.edit:hover{
+.edit:hover, .showMore:hover{
     color: rgb(33, 121, 156);
 }
