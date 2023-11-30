@@ -11,15 +11,15 @@ This is a simple task list app built with React, managing tasks and their descri
 
 ## Project Structure
 
-- **App.jsx**: Main component managing the state and rendering of the task list.
-- **ListElement.jsx**: Component for rendering individual tasks with expandable descriptions.
+- **App.tsx**: Main component managing the state and rendering of the task list.
+- **ListElement.tsx**: Component for rendering individual tasks with expandable descriptions.
 
 ## Getting Started
 
 1. Clone the repository: `git clone https://github.com/Fox-Coffee/task-list.git`
 2. Navigate to the project directory: `cd task-list`
 3. Install dependencies: `npm install`
-4. Run the app: `npm start`
+4. Run the app: `npm run dev`
 
 ## Usage
 

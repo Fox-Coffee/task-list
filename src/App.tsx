@@ -1,14 +1,15 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import ListElement from "./components/ListElement";
+import Form from "./components/Form";
 import './App.css'
 
-const useLocalStorage = (key, initialValue) => {
+const useLocalStorage = (key:string, initialValue: any) => {
   const storedValue = localStorage.getItem(key);
   const initial = storedValue ? JSON.parse(storedValue) : initialValue;
 
   const [value, setValue] = useState(initial);
 
-  const updateValue = (newValue) => {
+  const updateValue = (newValue:string) => {
     setValue(newValue);
     localStorage.setItem(key, JSON.stringify(newValue));
   };
@@ -20,10 +21,10 @@ function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [describe, setDescribe] = useLocalStorage("descriptions", []);
 
-  const taskInputRef = useRef();
-  const descriptionInputRef = useRef();
+  const taskInputRef:any = useRef();
+  const descriptionInputRef:any = useRef();
 
-  const addTask = (event) => {
+  const addTask = (event:any) => {
     event.preventDefault();
     const newTask = taskInputRef.current.value.trim();
     let newDescription = descriptionInputRef.current.value.trim();
@@ -48,15 +49,14 @@ function App() {
         <p>No tasks available. Add some tasks!</p>
       ) : (
         <ul>
-          {tasks.map((task, index) => (
+          {tasks.map((task:string, index: any) => (
             <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} tasks={tasks} description={describe}/>
           ))}
         </ul>
       )}
       <form onSubmit={addTask}>
         <label htmlFor="taskInput">Task:<br/></label>
-        <input type="text" id="taskInput" ref={taskInputRef} placeholder="Name of the task" size="51" max="40" min="3"/><br/>
-        <textarea ref={descriptionInputRef} placeholder="Description" rows="4" cols="50"/><br/>
+        <Form taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef} />
         <button type="submit">Add Task</button>
       </form>
     </div>
