@@ -13,6 +13,9 @@ This is a simple task list app built with React, managing tasks and their descri
 
 - **App.tsx**: Main component managing the state and rendering of the task list.
 - **ListElement.tsx**: Component for rendering individual tasks with expandable descriptions.
+- **MessageBoxEdit.tsx**: A propmt to update a task
+- **MessageBoxDelete.tsx**: A propmt to confirm deleting a task
+- **Form.tsx**: A form to add or edit the tasks
 
 ## Getting Started
 
