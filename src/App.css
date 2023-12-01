@@ -13,7 +13,7 @@ body{
     margin: 0 12px;
     font-size: smaller;
 }
-h3{
+h3, h1{
     display: inline;
 }
 .delete:hover{
@@ -21,4 +21,29 @@ h3{
 }
 .edit:hover, .show:hover{
     color: rgb(33, 121, 156);
+}
+
+@keyframes logo {
+    0% {
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }   
+    75% {
+        transform: rotate(270deg);
+    } 
+    100% {
+        transform: rotate(360deg);
+    } 
+}
+.logo{
+    width: 40px;
+    animation-name: logo;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
 }

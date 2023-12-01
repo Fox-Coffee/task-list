@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import "./MessageBox.css";
 
 function MessageBoxDelete(props:any){
@@ -8,6 +9,11 @@ function MessageBoxDelete(props:any){
             <button className="button" onClick={props.close}>No</button>
         </div>
     </div>)
+}
+
+MessageBoxDelete.propTypes = {
+    yes: PropTypes.func,
+    close: PropTypes.func
 }
 
 export default MessageBoxDelete;
