@@ -1,7 +1,25 @@
+/**
+    task-list - a program used to manage tasks
+    Copyright (C) 2023  Filip Kamieniecki
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 import { useState } from "react";
 import PropTypes from 'prop-types';
 import MessageBoxDelete from "./MessageBoxDelete";
 import MessageBoxEdit from "./MessageBoxEdit";
+import "./ListElement.scss"
 
 function ListElement(props:any){
   /*
@@ -55,7 +73,7 @@ function ListElement(props:any){
           {showDeleteMessageBox ? <MessageBoxDelete yes={deleteTask} close={()=>{changeShowDeleteMessageBox(false)}}/> : <></>}
           {/*If showEditMessageBox is true, the message box for editing a task will appear*/}
           {showEditMessageBox ? <MessageBoxEdit editTask={editTask} index={index} close={()=>{changeShowEditMessageBox(false)}} oldName={props.task} oldDesc={props.description[props.index]}/> : <></>}
-    <h3>{props.task}</h3>
+    <div className="taskName">{props.task}</div>
           {/*If showDetails is true, the description and buttons to edit and delete appear*/}
     {showDetails ? <><span className="show" onClick={()=>{changeShowDetails(false)}}>Show Less</span>
     <ul className="description" key="Description"><li>{props.description[props.index]}<br/><br/>

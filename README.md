@@ -1,7 +1,8 @@
 
-# Task List
+# ![Task List](./res/logo.png)
 
-This is a simple task list app built with React, managing tasks and their descriptions.
+Task List is a lightweight and intuitive task management application built with React. Whether you're organizing your daily to-dos or keeping track of ongoing projects, this app provides a simple and efficient way to manage tasks and their descriptions.
+
 
 ## Features
 
@@ -11,11 +12,14 @@ This is a simple task list app built with React, managing tasks and their descri
 
 ## Project Structure
 
-- **App.tsx**: Main component managing the state and rendering of the task list.
-- **ListElement.tsx**: Component for rendering individual tasks with expandable descriptions.
-- **MessageBoxEdit.tsx**: A propmt to update a task
-- **MessageBoxDelete.tsx**: A propmt to confirm deleting a task
-- **Form.tsx**: A form to add or edit the tasks
+- **src/index.tsx**: Entry point for rendering the React app.
+- **src/App.tsx**: Main component managing the state and rendering of the task list.
+- **src/App.scss**: Stylesheet for the main application.
+- **src/components/**: Folder containing React components.
+  - **ListElement.tsx**: Component for rendering individual tasks with expandable descriptions.
+  - **MessageBoxEdit.tsx**: A prompt to update a task.
+  - **MessageBoxDelete.tsx**: A prompt to confirm deleting a task.
+  - **Form.tsx**: A form to add or edit tasks.
 
 ## Getting Started
 
@@ -26,9 +30,32 @@ This is a simple task list app built with React, managing tasks and their descri
 
 ## Usage
 
+![](./res/scr1.png)<br>
+*Application interface*
+
 - Add tasks using the input form.
 - Click "Show More" to view the description and perform actions (edit, delete).
 - Tasks and descriptions are stored locally, persisting across sessions.
+
+![](./res/scr2.gif)<br>
+
+- Tasks can be deleted, showing a pop-up message asking to confirm the deletion.
+
+![](./res/scr3.png)<br>
+
+- Tasks can be edited through a form within a pop-up message.
+
+
+![](./res/scr4.png)<br>
+
+## Tech Stack
+
+- <img src="./res/html.png" height="14px">__HTML__
+- <img src="./res/typescript.png" height="14px">__TypeScript__
+- <img src="./res/react.png" height="14px">__React__
+- <img src="./res/vite.png" height="14px">__Vite__
+- <img src="./res/sass.png" height="14px">__Sass__
+- <img src="./res/ESLint.png" height="14px">__ESLint__
 
 ## Contributing
 
@@ -36,4 +63,8 @@ Feel free to contribute to the project by opening issues or submitting pull requ
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE).
+
+The GPL-3.0 license is a strong copyleft license that ensures the source code remains open and free. It grants users the freedom to view, modify, and distribute the software and any derivative works. Any changes made to the code must be shared under the same license terms.
+
+By using or contributing to this project, you agree to comply with the terms of the GPL-3.0 license.

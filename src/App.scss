@@ -1,3 +1,20 @@
+/**
+    task-list - a program used to manage tasks
+    Copyright (C) 2023  Filip Kamieniecki
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 body{
     background-color: rgb(37, 42, 44);
     color: rgb(233, 233, 233);
@@ -7,22 +24,9 @@ body{
     width: 100%;
     height: 100%;
 }
-.delete, .edit, .show{
-    user-select: none;
-    cursor: pointer;
-    margin: 0 12px;
-    font-size: smaller;
-}
-h3, h1{
+h1{
     display: inline;
 }
-.delete:hover{
-    color: rgb(219, 19, 19);
-}
-.edit:hover, .show:hover{
-    color: rgb(33, 121, 156);
-}
-
 @keyframes logo {
     0% {
         transform: rotate(0);
@@ -46,4 +50,19 @@ h3, h1{
     animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+.button{
+    border-radius: 2px;
+    background-color: rgb(179, 179, 179);
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    padding: 5px;
+    transition-duration: 0.4s;
+}
+.button:hover{
+    background-color: rgb(150, 150, 150);
+}
+.button:active{
+    background-color: rgb(97, 97, 97);
 }
