@@ -63,7 +63,7 @@ Feel free to contribute to the project by opening issues or submitting pull requ
 
 ## License
 
-This project is licensed under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE).
+This project is licensed under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE.md).
 
 The GPL-3.0 license is a strong copyleft license that ensures the source code remains open and free. It grants users the freedom to view, modify, and distribute the software and any derivative works. Any changes made to the code must be shared under the same license terms.
 
