@@ -1,6 +1,6 @@
 body{
     background-color: rgb(37, 42, 44);
-    color: rgb(255, 241, 216);
+    color: rgb(233, 233, 233);
     font-family: Arial, Helvetica, sans-serif;
 }
 .App{
@@ -45,5 +45,5 @@ h3, h1{
     animation-name: logo;
     animation-duration: 10s;
     animation-iteration-count: infinite;
-    animation-timing-function: ease;
+    animation-timing-function: linear;
 }

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import PropTypes from 'prop-types';
-import "./MessageBox.css";
+import "./MessageBox.scss";
 import Form from "./Form";
 
 function MessageBoxEdit(props:any){

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import ListElement from "./components/ListElement";
 import Form from "./components/Form";
-import './App.css'
+import './App.scss'
 
 // Custom hook for managing local storage
 const useLocalStorage = (key:string, initialValue: any) => {
@@ -74,8 +74,7 @@ function App() {
       {/*Form used to add tasks*/}
       <form onSubmit={addTask}>
         <label htmlFor="taskInput">Task:<br/></label>
-        <Form taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef} />
-        <button type="submit">Add Task</button>
+        <Form taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef}/>
       </form>
     </div>
   );

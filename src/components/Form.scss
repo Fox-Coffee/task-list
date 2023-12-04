@@ -1,0 +1,39 @@
+.taskInput, .descriptionInput{
+    background-color: rgb(37, 42, 44);
+    color: rgb(233, 233, 233);
+    box-sizing: border-box;
+    border: 2px solid rgb(233, 233, 233);
+    border-radius: 6px;
+    transition-duration: 0.4s;
+}
+.taskInput:focus, .descriptionInput:focus{
+    border: 2px solid rgb(180, 180, 180);
+    outline: none;
+}
+.button{
+    border-radius: 2px;
+    background-color: rgb(179, 179, 179);
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    padding: 5px;
+    transition-duration: 0.4s;
+}
+.button:hover{
+    background-color: rgb(150, 150, 150);
+}
+.button:active{
+    background-color: rgb(97, 97, 97);
+}
+
+.MessageBox{
+    .taskInput, .descriptionInput{
+        background-color: rgb(233, 233, 233);
+        color: rgb(37, 42, 44);
+        border: 2px solid rgb(37, 42, 44);
+    }
+    .taskInput:focus, .descriptionInput:focus{
+        border: 2px solid rgb(148, 149, 150);
+        outline: none;
+    }
+}

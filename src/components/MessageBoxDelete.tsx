@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import "./MessageBox.css";
+import "./MessageBox.scss";
 
 function MessageBoxDelete(props:any){
     return(<div className="MessageContainer">
