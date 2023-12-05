@@ -99,7 +99,7 @@ function App() {
               description - The table of all task names
               color - the color used for accented elements of an element
             */
-            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} tasks={tasks} description={describe} color={color}/>
+            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} updateCol={setColor} tasks={tasks} description={describe} color={color}/>
           ))}
         </ul>
       )}

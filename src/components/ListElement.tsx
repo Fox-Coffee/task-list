@@ -29,6 +29,7 @@ function ListElement(props:any){
     updateName - Function to change the description of the tasks
     tasks - The table of all task names
     description - The table of all task names
+    color - the color used for accented elements of an element
   */
 
   //Used to determine if 
@@ -39,7 +40,7 @@ function ListElement(props:any){
   
   const [index, setIndex] = useState(props.index);
 
-  const editTask = (index:number, newTask:string, newDesc:string) => {
+  const editTask = (index:number, newTask:string, newDesc:string, newColor:string) => {
     const updatedTasks = [...props.tasks];
     //Checks if the task's name changed, and changes to the new name
     if(newTask !== null && newTask !== ""){
@@ -52,6 +53,11 @@ function ListElement(props:any){
       updatedDesc[index] = newDesc;
       props.updateDesc(updatedDesc);
     }
+    const updatedColors = [...props.color];
+    updatedColors[index] = newColor;
+    props.updateCol(updatedColors);
+
+    changeShowEditMessageBox(false);
   };
   const deleteTask = () => {
     //Updating the list of names
@@ -63,6 +69,10 @@ function ListElement(props:any){
     const updatedDesc = [...props.description];
     updatedDesc.splice(index, 1);
     props.updateDesc(updatedDesc);
+
+    const updatedColors = [...props.color];
+    updatedDesc.splice(index, 1);
+    props.updateCol(updatedColors);
 
     //Hiding the message box
     changeShowDeleteMessageBox(false);
@@ -89,7 +99,8 @@ ListElement.propTypes = {
   updateName: PropTypes.func,
   updateDesc: PropTypes.func,
   tasks: PropTypes.array,
-  color: PropTypes.array
+  color: PropTypes.array,
+  updateCol: PropTypes.func
 }
 
 export default ListElement; 

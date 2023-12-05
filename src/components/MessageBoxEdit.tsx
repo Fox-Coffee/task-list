@@ -25,8 +25,9 @@ function MessageBoxEdit(props:any){
     const taskInputRef:any = useRef();
     //Ref used to read the value of the input responsible for task's description
     const descriptionInputRef:any = useRef();
-      //Ref used to read the value of the input responsible for task's color
+    //Ref used to read the value of the input responsible for task's color
     const colorInputRef:any = useRef();
+    
     return(<div className="MessageContainer">
     <div className="MessageBox">
         <h2>What should the task's name and description be?</h2>
@@ -34,12 +35,12 @@ function MessageBoxEdit(props:any){
             e.preventDefault();
             const newTask:string = taskInputRef.current.value.trim();
             let newDescription:string = descriptionInputRef.current.value.trim();
-            let newColor:string = colorInputRef.current.value();        
-            props.editTask(props.index, newTask, newDescription);
+            let newColor:string = colorInputRef.current.value;        
+            props.editTask(props.index, newTask, newDescription, newColor);
             props.close();
         }}>
             <Form defName={props.oldName} defDesc={props.oldDesc} defColor={props.oldColor} taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef} colorInputRef={colorInputRef}/>
-            <input type="submit" className="button" value={"Edit"}></input>
+            <input type="submit" className="button" value={"Edit"}/>
             <button className="button" onClick={props.close}>Cancel</button>
         </form>
     </div>
