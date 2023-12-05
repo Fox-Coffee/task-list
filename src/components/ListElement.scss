@@ -27,3 +27,28 @@
 .edit:hover, .show:hover{
     color: rgb(33, 121, 156);
 }
+.taskName{
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+}
+.task{
+    list-style-position: inside;
+    border-radius: 10px;
+    background-color: rgb(29, 30, 31);
+    margin: 13px;
+    flex: 25%;
+}
+.taskDescription{
+    padding: 10px;
+    list-style-type: none;
+}
+@media (max-width: 1300px) {
+    .task{
+        flex: 40%;
+    }
+}
+@media (max-width: 800px) {
+    .task{
+        flex: 100%;
+    }
+}

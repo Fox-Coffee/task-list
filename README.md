@@ -12,6 +12,7 @@ Task List is a lightweight and intuitive task management application built with 
 
 ## Project Structure
 
+- **index.html**: The html file used to render the app.
 - **src/index.tsx**: Entry point for rendering the React app.
 - **src/App.tsx**: Main component managing the state and rendering of the task list.
 - **src/App.scss**: Stylesheet for the main application.
@@ -20,6 +21,8 @@ Task List is a lightweight and intuitive task management application built with 
   - **MessageBoxEdit.tsx**: A prompt to update a task.
   - **MessageBoxDelete.tsx**: A prompt to confirm deleting a task.
   - **Form.tsx**: A form to add or edit tasks.
+- **public/**: Contains static files
+- **res/**: Contains image files for the README.md file
 
 ## Getting Started
 

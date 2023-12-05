@@ -37,7 +37,7 @@ function ListElement(props:any){
   const [showEditMessageBox, changeShowEditMessageBox] = useState(false);
 
   
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(props.index);
 
   const editTask = (index:number, newTask:string, newDesc:string) => {
     const updatedTasks = [...props.tasks];
@@ -68,15 +68,15 @@ function ListElement(props:any){
     changeShowDeleteMessageBox(false);
   };
   return(
-  <li key={props.index}>
+  <li key={index} className="task">
           {/*If showDeleteMessageBox is true, the message box for confirming deletion of a task will appear, where the user can confirm the deletion, or cancel it*/}
-          {showDeleteMessageBox ? <MessageBoxDelete yes={deleteTask} close={()=>{changeShowDeleteMessageBox(false)}}/> : <></>}
+          {showDeleteMessageBox ? <MessageBoxDelete txt="Are you sure you want to delete this task?" yes={deleteTask} close={()=>{changeShowDeleteMessageBox(false)}}/> : <></>}
           {/*If showEditMessageBox is true, the message box for editing a task will appear*/}
-          {showEditMessageBox ? <MessageBoxEdit editTask={editTask} index={index} close={()=>{changeShowEditMessageBox(false)}} oldName={props.task} oldDesc={props.description[props.index]}/> : <></>}
-    <div className="taskName">{props.task}</div>
+          {showEditMessageBox ? <MessageBoxEdit editTask={editTask} index={index} close={()=>{changeShowEditMessageBox(false)}} oldName={props.task} oldDesc={props.description[props.index]} oldColor={props.color[index]}/> : <></>}
+    <div className="taskName" style={{backgroundColor: props.color[index]}}>{props.task}</div>
           {/*If showDetails is true, the description and buttons to edit and delete appear*/}
     {showDetails ? <><span className="show" onClick={()=>{changeShowDetails(false)}}>Show Less</span>
-    <ul className="description" key="Description"><li>{props.description[props.index]}<br/><br/>
+    <ul className="description" key="Description"><li className="taskDescription">{props.description[props.index]}<br/><br/>
       <span className="delete" onClick={() => {changeShowDeleteMessageBox(true);setIndex(props.index)}}>Delete</span><span className="edit" onClick={() => {changeShowEditMessageBox(true);setIndex(props.index)}}>Edit</span>
       </li></ul></> : <span className="show" onClick={()=>{changeShowDetails(true)}}>Show More</span>}
   </li>);
@@ -88,7 +88,8 @@ ListElement.propTypes = {
   description: PropTypes.array,
   updateName: PropTypes.func,
   updateDesc: PropTypes.func,
-  tasks: PropTypes.array
+  tasks: PropTypes.array,
+  color: PropTypes.array
 }
 
 export default ListElement; 

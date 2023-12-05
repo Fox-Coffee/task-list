@@ -15,6 +15,14 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+@keyframes enter{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 .MessageContainer{
     position: fixed;
     top: 0;
@@ -25,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    animation: enter 0.5s forwards ease;
     .MessageBox{
         background-color: rgb(233, 233, 233);
         color: rgb(37, 42, 44);
@@ -34,6 +42,7 @@
         max-width: 80%;
         max-height: 80%;
         text-align: center;
+        animation: enter 0.5s forwards ease;
     }
 
 }

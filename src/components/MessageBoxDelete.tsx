@@ -21,7 +21,7 @@ import "./MessageBox.scss";
 function MessageBoxDelete(props:any){
     return(<div className="MessageContainer">
         <div className="MessageBox">
-            <h2>Are you sure you want to delete this task?</h2>
+            <h2>{props.txt}</h2>
             <button className="button" onClick={props.yes}>Yes</button>
             <button className="button" onClick={props.close}>No</button>
         </div>
@@ -30,7 +30,8 @@ function MessageBoxDelete(props:any){
 
 MessageBoxDelete.propTypes = {
     yes: PropTypes.func,
-    close: PropTypes.func
+    close: PropTypes.func,
+    txt: PropTypes.string
 }
 
 export default MessageBoxDelete;
