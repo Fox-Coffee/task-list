@@ -1,8 +1,8 @@
 {
   "name": "task-list",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "private": false,
+  "version": "1.1.0",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -26,5 +26,16 @@
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
-  }
+  },
+  "description": "Task List is a lightweight and intuitive task management application built with React. Whether you're organizing your daily to-dos or keeping track of ongoing projects, this app provides a simple and efficient way to manage tasks and their descriptions.",
+  "main": "index.js",
+  "keywords": [
+    "react",
+    "scss",
+    "task",
+    "list",
+    "frontend"
+  ],
+  "author": "Filip Kamieniecki",
+  "license": "GPL-3.0"
 }

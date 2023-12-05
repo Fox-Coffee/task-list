@@ -3,6 +3,16 @@
 
 Task List is a lightweight and intuitive task management application built with React. Whether you're organizing your daily to-dos or keeping track of ongoing projects, this app provides a simple and efficient way to manage tasks and their descriptions.
 
+## Table of Contents
+
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [License](#license)
+
 
 ## Features
 
@@ -50,6 +60,8 @@ Task List is a lightweight and intuitive task management application built with 
 
 
 ![](./res/scr4.png)<br>
+
+- The site is responsive, and will change it's contents with the window size.
 
 ## Tech Stack
 
