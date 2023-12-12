@@ -36,6 +36,7 @@ function ListElement(props:any){
   const [showDetails, changeShowDetails] = useState(false);
   const [showDeleteMessageBox, changeShowDeleteMessageBox] = useState(false);
   const [showEditMessageBox, changeShowEditMessageBox] = useState(false);
+  const [deleteAnimation, setDeleteAnimation] = useState(false);
 
   
   const [index, setIndex] = useState(props.index);
@@ -60,25 +61,28 @@ function ListElement(props:any){
     changeShowEditMessageBox(false);
   };
   const deleteTask = () => {
-    //Updating the list of names
-    const updatedTasks = [...props.tasks];
-    updatedTasks.splice(index, 1);
-    props.updateName(updatedTasks);
+    setDeleteAnimation(true);
+    setTimeout(()=>{
+      //Updating the list of names
+      const updatedTasks = [...props.tasks];
+      updatedTasks.splice(index, 1);
+      props.updateName(updatedTasks);
 
-    //Updating the list of descriptions
-    const updatedDesc = [...props.description];
-    updatedDesc.splice(index, 1);
-    props.updateDesc(updatedDesc);
+      //Updating the list of descriptions
+      const updatedDesc = [...props.description];
+      updatedDesc.splice(index, 1);
+      props.updateDesc(updatedDesc);
 
-    const updatedColors = [...props.color];
-    updatedDesc.splice(index, 1);
-    props.updateCol(updatedColors);
+      const updatedColors = [...props.color];
+      updatedDesc.splice(index, 1);
+      props.updateCol(updatedColors);
+    }, 500)
 
     //Hiding the message box
     changeShowDeleteMessageBox(false);
   };
   return(
-  <li key={index} className="task">
+  <li key={index} className={`task ${deleteAnimation ? "delAni" : ""}`}>
           {/*If showDeleteMessageBox is true, the message box for confirming deletion of a task will appear, where the user can confirm the deletion, or cancel it*/}
           {showDeleteMessageBox ? <MessageBoxDelete txt="Are you sure you want to delete this task?" yes={deleteTask} close={()=>{changeShowDeleteMessageBox(false)}}/> : <></>}
           {/*If showEditMessageBox is true, the message box for editing a task will appear*/}

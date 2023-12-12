@@ -23,6 +23,18 @@
         opacity: 1;
     }
 }
+
+@keyframes slide {
+    0%{
+        opacity: 0;
+        transform: translate(0, -250%);
+    }
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .MessageContainer{
     position: fixed;
     top: 0;
@@ -33,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: enter 0.5s forwards ease;
+    animation: enter 0.5s;
     .MessageBox{
         background-color: rgb(233, 233, 233);
         color: rgb(37, 42, 44);
@@ -42,7 +54,7 @@
         max-width: 80%;
         max-height: 80%;
         text-align: center;
-        animation: enter 0.5s forwards ease;
+        animation: slide 0.5s;
     }
 
 }
