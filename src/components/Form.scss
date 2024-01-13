@@ -38,3 +38,45 @@
         outline: none;
     }
 }
+input[type="radio"] {
+    display: none;
+}
+label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+#red + label {
+    background-color: red;
+}
+
+#blue + label {
+    background-color: rgb(53, 53, 255);
+}
+
+#green + label {
+    background-color: rgb(8, 155, 8);
+}
+
+#yellow + label {
+    background-color: rgb(255, 255, 110);
+}
+
+#orange + label {
+    background-color: orange;
+}
+
+#purple + label {
+    background-color: rgb(165, 0, 165);
+}
+
+input[type="radio"]:hover + label {
+    transform:scale(1.1);
+}
+input[type="radio"]:checked + label {
+    transform:scale(1.2);
+}

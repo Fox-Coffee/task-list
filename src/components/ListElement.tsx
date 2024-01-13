@@ -82,7 +82,7 @@ function ListElement(props:any){
 
       //Updating the list of colors
       const updatedColors = [...props.color];
-      updatedDesc.splice(index, 1);
+      updatedColors.splice(index, 1);
       props.updateCol(updatedColors);
 
       //Updating the list of dates

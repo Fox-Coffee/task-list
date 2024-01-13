@@ -21,9 +21,26 @@
 import "./Form.scss";
 
 function Form(props:any){
+    const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      props.setSelectedColor(event.target.value);
+    }
+
     return(<div><input type="text" id="taskInput" className="taskInput" ref={props.taskInputRef} placeholder="Name of the task" size={51} max={40} defaultValue={props.defName}/><br/>
     <textarea ref={props.descriptionInputRef} placeholder="Description" className="descriptionInput" rows={4} cols={50} defaultValue={props.defDesc}/><br/>
-    <label htmlFor="color">Color: </label><input type="color" name="color" id="color" defaultValue={props.defColor} ref={props.colorInputRef}/>
+    <label>Color: </label>
+    <input type="radio" name="color" id="red" value="red" defaultChecked onChange={handleColorChange} />
+    <label htmlFor="red"></label>
+    <input type="radio" name="color" id="blue" value="#3535ff" onChange={handleColorChange} />
+    <label htmlFor="blue"></label>
+    <input type="radio" name="color" id="green" value="#089b08" onChange={handleColorChange} />
+    <label htmlFor="green"></label>
+    <input type="radio" name="color" id="yellow" value="#ffff6e" onChange={handleColorChange} />
+    <label htmlFor="yellow"></label>
+    <input type="radio" name="color" id="orange" value="orange" onChange={handleColorChange} />
+    <label htmlFor="orange"></label>
+    <input type="radio" name="color" id="purple" value="#a500a5" onChange={handleColorChange} />
+    <label htmlFor="purple"></label>
+    <br/>
     </div>)  
 }
 

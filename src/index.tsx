@@ -56,14 +56,13 @@ function App() {
   const taskInputRef:any = useRef();
   //Ref used to read the value of the input responsible for task's description
   const descriptionInputRef:any = useRef();
-  //Ref used to read the value of the input responsible for task's color
-  const colorInputRef:any = useRef();
+  //State used to store the color of a future task
+  const [selectedColor, setSelectedColor] = useState('');
 
   const addTask = (event:any) => {
     event.preventDefault();
     const newTask = taskInputRef.current.value.trim();
     let newDescription = descriptionInputRef.current.value.trim();
-    let newColor = colorInputRef.current.value;
     let newDate = new Date();
     let uDate = String(newDate.getDate()).padStart(2, "0") + "/" + String(newDate.getMonth()+1).padStart(2, "0") + "/" + newDate.getFullYear();
     let uTime = String(newDate.getHours()).padStart(2, "0") + ":" + String(newDate.getMinutes()).padStart(2, "0");
@@ -76,6 +75,8 @@ function App() {
         newDescription = "No description given."
       }
       const updatedDescriptions = [...describe, newDescription];
+      const newColor = selectedColor;
+      
       setDescribe(updatedDescriptions);
       descriptionInputRef.current.value = "";
   
@@ -127,7 +128,7 @@ function App() {
       {/*Form used to add tasks*/}
       <form onSubmit={addTask}>
         <label htmlFor="taskInput">Task:<br/></label>
-        <Form taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef} colorInputRef={colorInputRef}/>
+        <Form taskInputRef={taskInputRef} descriptionInputRef={descriptionInputRef} setSelectedColor={setSelectedColor}/>
         <button type="submit" className="button">Add Task</button>
         {show ? <MessageBoxDelete close={()=>{setShow(false)}} yes={clear} txt="Do you want to delete all tasks?"/> : <></>}
         <button className="button" onClick={()=>{setShow(true)}}>Clear List</button>
