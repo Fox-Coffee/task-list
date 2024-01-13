@@ -50,6 +50,7 @@ function App() {
   const [color, setColor] = useLocalStorage("color", []);
   const [show, setShow] = useState(false);
   const [date, setDate] = useLocalStorage("date", []);
+  const [time, setTime] = useLocalStorage("time", []);
 
   //Ref used to read the value of the input responsible for task's name
   const taskInputRef:any = useRef();
@@ -64,24 +65,29 @@ function App() {
     let newDescription = descriptionInputRef.current.value.trim();
     let newColor = colorInputRef.current.value;
     let newDate = new Date();
+    let uDate = String(newDate.getDate()).padStart(2, "0") + "/" + String(newDate.getMonth()+1).padStart(2, "0") + "/" + newDate.getFullYear();
+    let uTime = String(newDate.getHours()).padStart(2, "0") + ":" + String(newDate.getMinutes()).padStart(2, "0");
 
-    if (newTask) {
+    if (newTask && newTask.length <= 30 && newDescription.length <= 200) {
       const updatedTasks = [...tasks, newTask];
       setTasks(updatedTasks);
       taskInputRef.current.value = "";
-    }
-    if (!newDescription) {
-      newDescription = "No description given."
-    }
-    const updatedDescriptions = [...describe, newDescription];
-    setDescribe(updatedDescriptions);
-    descriptionInputRef.current.value = "";
+      if (!newDescription) {
+        newDescription = "No description given."
+      }
+      const updatedDescriptions = [...describe, newDescription];
+      setDescribe(updatedDescriptions);
+      descriptionInputRef.current.value = "";
+  
+      const updatedColors = [...color, newColor];
+      setColor(updatedColors);
+  
+      const updatedDate = [...date, uDate];
+      setDate(updatedDate);
 
-    const updatedColors = [...color, newColor];
-    setColor(updatedColors);
-
-    const updatedDate = [...date, newDate];
-    setDate(updatedDate);
+      const updatedTime = [...time, uTime];
+      setTime(updatedTime);
+    }
   };
   function clear(){
     setTasks([]);
@@ -89,9 +95,12 @@ function App() {
     setColor([]);
     setShow(false);
     setDate([]);
+    setTime([]);
   }
   return (
     <div className="App">
+      {/* I made the image in 2 minutes in Paint.NET, so it's not the best, but it's better than nothing.*/}
+      {/* At least it spins. Who doesn't like spinning images? Spinny spinny */}
       <header><img src="/icon512.png" className="logo"></img><h1>ask List</h1></header>
       {tasks.length === 0 ? (
         //Displayed if no task is present
@@ -111,7 +120,7 @@ function App() {
               updateName - Function to change the description of the tasks
               updateDate - Function to change the date of the task
             */
-            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} updateCol={setColor} tasks={tasks} description={describe} color={color} date={date} updateDate={setColor}/>
+            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} updateCol={setColor} tasks={tasks} description={describe} color={color} date={date} updateDate={setDate} time={time} updateTime={setTime}/>
           ))}
         </ul>
       )}

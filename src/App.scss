@@ -44,6 +44,11 @@ h1{
         transform: rotate(360deg);
     } 
 }
+@media screen and (max-width: 600px) {
+    form{
+        text-align: center;
+    }
+}
 .logo{
     width: 40px;
     animation-name: logo;

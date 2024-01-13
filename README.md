@@ -76,6 +76,10 @@ Task List is a lightweight and intuitive task management application built with 
 
 Feel free to contribute to the project by opening issues or submitting pull requests.
 
+## Changelog
+
+Check [The changelog file](changelog) for a description of changes made over time.
+
 ## License
 
 This project is licensed under the [GNU General Public License v3.0 (GPL-3.0)](LICENSE.md).

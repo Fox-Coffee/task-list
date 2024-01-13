@@ -10,3 +10,7 @@ Version 1.1.01
 Version 1.1
 -The app is now responsive, and will change it's contents with the window size
 -Tasks now have colors assigned to them, which will be displayed with the task
+
+Version 1.0
+-App allows for adding tasts to a list
+-Tasks can be deleted and edited

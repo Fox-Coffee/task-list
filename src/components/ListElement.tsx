@@ -36,13 +36,16 @@ function ListElement(props:any){
     color - the color used for accented elements of an element
   */
 
-  //Used to determine if 
+  //Used to determine if the details should be shown
   const [showDetails, changeShowDetails] = useState(false);
+  //Used to determine if the delete message box should be shown
   const [showDeleteMessageBox, changeShowDeleteMessageBox] = useState(false);
+  //Used to determine if the edit message box should be shown
   const [showEditMessageBox, changeShowEditMessageBox] = useState(false);
+  //Used to determine if the delete animation should be played
   const [deleteAnimation, setDeleteAnimation] = useState(false);
 
-  
+  //Used to determine which task is being edited
   const [index, setIndex] = useState(props.index);
 
   const editTask = (index:number, newTask:string, newDesc:string, newColor:string) => {
@@ -77,31 +80,35 @@ function ListElement(props:any){
       updatedDesc.splice(index, 1);
       props.updateDesc(updatedDesc);
 
+      //Updating the list of colors
       const updatedColors = [...props.color];
       updatedDesc.splice(index, 1);
       props.updateCol(updatedColors);
 
+      //Updating the list of dates
       const updatedDate = [...props.date];
       updatedDate.splice(index, 1);
       props.updateDate(updatedDate);
-    }, 500)
+
+      const updatedTime = [...props.time];
+      updatedTime.splice(index, 1);
+      props.updateTime(updatedTime);
+    }, 500 /*The time, during which the animation plays, after which the task is deleted*/)
 
     //Hiding the message box
     changeShowDeleteMessageBox(false);
   };
   return(
-  <li key={index} className={`task ${deleteAnimation ? "delAni" : ""}`}>
+  <li key={index} className={`task ${deleteAnimation ? "delAni" : ""} ${showDetails ? "expanded" : ""}`}>
           {/*If showDeleteMessageBox is true, the message box for confirming deletion of a task will appear, where the user can confirm the deletion, or cancel it*/}
           {showDeleteMessageBox ? <MessageBoxDelete txt="Are you sure you want to delete this task?" yes={deleteTask} close={()=>{changeShowDeleteMessageBox(false)}}/> : <></>}
           {/*If showEditMessageBox is true, the message box for editing a task will appear*/}
           {showEditMessageBox ? <MessageBoxEdit editTask={editTask} index={index} close={()=>{changeShowEditMessageBox(false)}} oldName={props.task} oldDesc={props.description[props.index]} oldColor={props.color[index]}/> : <></>}
     <div className="taskName" style={{backgroundColor: props.color[index]}}>{props.task}</div>
           {/*If showDetails is true, the description, date of creation and buttons to edit and delete appear*/}
-    {showDetails ? <><span className="show" onClick={()=>{changeShowDetails(false)}}>Show Less</span>
-    <span className="date">Created on {String(props.date[props.index].getDate()).padStart(2, '0')}.{String(props.date[props.index].getMonth()+1).padStart(2, '0')}.{props.date[props.index].getFullYear()} at {props.date[props.index].getHours()}:{props.date[props.index].getMinutes()}</span>
-    <ul className="description" key="Description"><li className="taskDescription">{props.description[props.index]}<br/><br/>
-      <span className="delete" onClick={() => {changeShowDeleteMessageBox(true);setIndex(props.index)}}>Delete</span><span className="edit" onClick={() => {changeShowEditMessageBox(true);setIndex(props.index)}}>Edit</span>
-      </li></ul></> : <span className="show" onClick={()=>{changeShowDetails(true)}}>Show More</span>}
+    {showDetails ? <><span className="show" onClick={()=>{changeShowDetails(false)}}>Show Less</span><span className="delete" onClick={() => {changeShowDeleteMessageBox(true);setIndex(props.index)}}>Delete</span><span className="edit" onClick={() => {changeShowEditMessageBox(true);setIndex(props.index)}}>Edit</span></> : <span className="show" onClick={()=>{changeShowDetails(true)}}>Show More</span>}
+    <div className="date">{props.date[index]} {props.time[index]}</div><br /><br />
+    <div className="taskDescription">{props.description[props.index]}</div><br/><br/>
   </li>);
 }
 
@@ -111,11 +118,13 @@ ListElement.propTypes = {
   description: PropTypes.array,
   date: PropTypes.array,
   color: PropTypes.array,
+  time: PropTypes.array,
   tasks: PropTypes.array,
   updateName: PropTypes.func,
   updateDesc: PropTypes.func,
   updateCol: PropTypes.func,
-  updateDate: PropTypes.func
+  updateDate: PropTypes.func,
+  updateTime: PropTypes.func
 }
 
 export default ListElement; 

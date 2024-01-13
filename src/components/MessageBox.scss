@@ -15,6 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// The animation of the screen dimming while the message box is displayed
 @keyframes enter{
     from{
         opacity: 0;
@@ -24,6 +26,8 @@
     }
 }
 
+
+// The animation of the message box sliding in from the top of the screen
 @keyframes slide {
     0%{
         opacity: 0;
