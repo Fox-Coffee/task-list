@@ -15,6 +15,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// This file contains the code for a massage box used to edit tasks
+
 import { useRef } from "react";
 import PropTypes from 'prop-types';
 import "./MessageBox.scss";

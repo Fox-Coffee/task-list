@@ -15,6 +15,10 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// This file contains the code for an element of the list of tasks, displayed as a card. It contains the name of the task, and a button to
+// show more details about the task, such as its description, date of creation, and buttons to edit and delete the task.
+
 import { useState } from "react";
 import PropTypes from 'prop-types';
 import MessageBoxDelete from "./MessageBoxDelete";
@@ -76,6 +80,10 @@ function ListElement(props:any){
       const updatedColors = [...props.color];
       updatedDesc.splice(index, 1);
       props.updateCol(updatedColors);
+
+      const updatedDate = [...props.date];
+      updatedDate.splice(index, 1);
+      props.updateDate(updatedDate);
     }, 500)
 
     //Hiding the message box
@@ -88,8 +96,9 @@ function ListElement(props:any){
           {/*If showEditMessageBox is true, the message box for editing a task will appear*/}
           {showEditMessageBox ? <MessageBoxEdit editTask={editTask} index={index} close={()=>{changeShowEditMessageBox(false)}} oldName={props.task} oldDesc={props.description[props.index]} oldColor={props.color[index]}/> : <></>}
     <div className="taskName" style={{backgroundColor: props.color[index]}}>{props.task}</div>
-          {/*If showDetails is true, the description and buttons to edit and delete appear*/}
+          {/*If showDetails is true, the description, date of creation and buttons to edit and delete appear*/}
     {showDetails ? <><span className="show" onClick={()=>{changeShowDetails(false)}}>Show Less</span>
+    <span className="date">Created on {String(props.date[props.index].getDate()).padStart(2, '0')}.{String(props.date[props.index].getMonth()+1).padStart(2, '0')}.{props.date[props.index].getFullYear()} at {props.date[props.index].getHours()}:{props.date[props.index].getMinutes()}</span>
     <ul className="description" key="Description"><li className="taskDescription">{props.description[props.index]}<br/><br/>
       <span className="delete" onClick={() => {changeShowDeleteMessageBox(true);setIndex(props.index)}}>Delete</span><span className="edit" onClick={() => {changeShowEditMessageBox(true);setIndex(props.index)}}>Edit</span>
       </li></ul></> : <span className="show" onClick={()=>{changeShowDetails(true)}}>Show More</span>}
@@ -100,11 +109,13 @@ ListElement.propTypes = {
   index: PropTypes.number,
   task: PropTypes.string,
   description: PropTypes.array,
+  date: PropTypes.array,
+  color: PropTypes.array,
+  tasks: PropTypes.array,
   updateName: PropTypes.func,
   updateDesc: PropTypes.func,
-  tasks: PropTypes.array,
-  color: PropTypes.array,
-  updateCol: PropTypes.func
+  updateCol: PropTypes.func,
+  updateDate: PropTypes.func
 }
 
 export default ListElement; 

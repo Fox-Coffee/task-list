@@ -15,6 +15,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// This file contains the code for the main app.
+
 import ReactDOM from 'react-dom/client';
 import { useState, useRef } from "react";
 import ListElement from "./components/ListElement";
@@ -46,6 +49,7 @@ function App() {
   const [describe, setDescribe] = useLocalStorage("descriptions", []);
   const [color, setColor] = useLocalStorage("color", []);
   const [show, setShow] = useState(false);
+  const [date, setDate] = useLocalStorage("date", []);
 
   //Ref used to read the value of the input responsible for task's name
   const taskInputRef:any = useRef();
@@ -59,6 +63,7 @@ function App() {
     const newTask = taskInputRef.current.value.trim();
     let newDescription = descriptionInputRef.current.value.trim();
     let newColor = colorInputRef.current.value;
+    let newDate = new Date();
 
     if (newTask) {
       const updatedTasks = [...tasks, newTask];
@@ -74,12 +79,16 @@ function App() {
 
     const updatedColors = [...color, newColor];
     setColor(updatedColors);
+
+    const updatedDate = [...date, newDate];
+    setDate(updatedDate);
   };
   function clear(){
     setTasks([]);
     setDescribe([]);
     setColor([]);
     setShow(false);
+    setDate([]);
   }
   return (
     <div className="App">
@@ -94,13 +103,15 @@ function App() {
             /*
               index - Index of the current element of the list.
               task - The name of the task
+              color - the color used for accented elements of an element
+              date - the date of creation of the task
+              description - The table of all task names
+              tasks - The table of all task names
               updateName - Function to change the name of the tasks
               updateName - Function to change the description of the tasks
-              tasks - The table of all task names
-              description - The table of all task names
-              color - the color used for accented elements of an element
+              updateDate - Function to change the date of the task
             */
-            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} updateCol={setColor} tasks={tasks} description={describe} color={color}/>
+            <ListElement index={index} task={task} updateName={setTasks} updateDesc={setDescribe} updateCol={setColor} tasks={tasks} description={describe} color={color} date={date} updateDate={setColor}/>
           ))}
         </ul>
       )}

@@ -1,3 +1,9 @@
+Version 1.2
+- Added:
+* Short description to the files
+* Date of creation for tasks
+- Made items have a maximum size, so they won't stretch too much
+
 Version 1.1.01
 -Added animations to tasks and massage boxes
 

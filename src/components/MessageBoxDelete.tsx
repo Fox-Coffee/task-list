@@ -15,6 +15,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+// This file contains the code for the message box used to confirm the deletion of a task
+
 import PropTypes from 'prop-types';
 import "./MessageBox.scss";
 
